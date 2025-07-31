@@ -1,0 +1,1011 @@
+{
+	"info": {
+		"_postman_id": "course-management-platform",
+		"name": "Course Management Platform API",
+		"description": "Complete API collection for the Course Management Platform backend service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"y.molumo@alustudent.com\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "login"]
+						}
+					}
+				},
+				{
+					"name": "Register Manager",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test Manager\",\n  \"email\": \"test.manager@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"manager\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "register"]
+						}
+					}
+				},
+				{
+					"name": "Register Facilitator",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test Facilitator\",\n  \"email\": \"test.facilitator@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"facilitator\",\n  \"qualification\": \"Masters in Computer Science\",\n  \"location\": \"Kigali\",\n  \"managerId\": \"{{manager_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "register"]
+						}
+					}
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/profile",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "profile"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Modules",
+			"item": [
+				{
+					"name": "Get All Modules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/modules",
+							"host": ["{{base_url}}"],
+							"path": ["api", "modules"]
+						}
+					}
+				},
+				{
+					"name": "Get Module by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/modules/{{module_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "modules", "{{module_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Create Module",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Advanced Web Development\",\n  \"half\": \"H2\",\n  \"description\": \"Advanced web development concepts and practices\",\n  \"credits\": 18\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/modules",
+							"host": ["{{base_url}}"],
+							"path": ["api", "modules"]
+						}
+					}
+				},
+				{
+					"name": "Update Module",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Updated Module Name\",\n  \"description\": \"Updated description\",\n  \"credits\": 20\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/modules/{{module_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "modules", "{{module_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Module",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/modules/{{module_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "modules", "{{module_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Modules by Half",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/modules/half/H1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "modules", "half", "H1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Classes",
+			"item": [
+				{
+					"name": "Get All Classes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/classes",
+							"host": ["{{base_url}}"],
+							"path": ["api", "classes"]
+						}
+					}
+				},
+				{
+					"name": "Get Class by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/classes/{{class_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "classes", "{{class_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Create Class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"2025J\",\n  \"startDate\": \"2025-01-13\",\n  \"graduationDate\": \"2025-04-30\",\n  \"trimester\": \"January\",\n  \"year\": 2025\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/classes",
+							"host": ["{{base_url}}"],
+							"path": ["api", "classes"]
+						}
+					}
+				},
+				{
+					"name": "Update Class",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"2025J-Updated\",\n  \"graduationDate\": \"2025-05-15\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/classes/{{class_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "classes", "{{class_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Class",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/classes/{{class_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "classes", "{{class_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Classes by Year",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/classes/year/2025",
+							"host": ["{{base_url}}"],
+							"path": ["api", "classes", "year", "2025"]
+						}
+					}
+				},
+				{
+					"name": "Get Classes by Trimester",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/classes/trimester/January",
+							"host": ["{{base_url}}"],
+							"path": ["api", "classes", "trimester", "January"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/students",
+							"host": ["{{base_url}}"],
+							"path": ["api", "students"]
+						}
+					}
+				},
+				{
+					"name": "Get Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/students/{{student_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "students", "{{student_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"new.student@alustudent.com\",\n  \"name\": \"New Student\",\n  \"classId\": \"{{class_id}}\",\n  \"cohortId\": \"{{cohort_id}}\",\n  \"studentNumber\": \"STU003\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/students",
+							"host": ["{{base_url}}"],
+							"path": ["api", "students"]
+						}
+					}
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Updated Student Name\",\n  \"status\": \"active\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/students/{{student_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "students", "{{student_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/students/{{student_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "students", "{{student_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Students by Class",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/students/class/{{class_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "students", "class", "{{class_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Students by Cohort",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/students/cohort/{{cohort_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "students", "cohort", "{{cohort_id}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Facilitators",
+			"item": [
+				{
+					"name": "Get All Facilitators",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/facilitators",
+							"host": ["{{base_url}}"],
+							"path": ["api", "facilitators"]
+						}
+					}
+				},
+				{
+					"name": "Get Facilitator by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/facilitators/{{facilitator_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "facilitators", "{{facilitator_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Create Facilitator",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"new.facilitator@example.com\",\n  \"name\": \"New Facilitator\",\n  \"qualification\": \"PhD in Software Engineering\",\n  \"location\": \"Nairobi\",\n  \"managerId\": \"{{manager_id}}\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/facilitators",
+							"host": ["{{base_url}}"],
+							"path": ["api", "facilitators"]
+						}
+					}
+				},
+				{
+					"name": "Update Facilitator",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Updated Facilitator Name\",\n  \"location\": \"Updated Location\",\n  \"status\": \"active\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/facilitators/{{facilitator_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "facilitators", "{{facilitator_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Facilitator",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/facilitators/{{facilitator_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "facilitators", "{{facilitator_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Facilitators by Manager",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/facilitators/manager/{{manager_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "facilitators", "manager", "{{manager_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Facilitator Courses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/facilitators/{{facilitator_id}}/courses",
+							"host": ["{{base_url}}"],
+							"path": ["api", "facilitators", "{{facilitator_id}}", "courses"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Offerings",
+			"item": [
+				{
+					"name": "Get All Course Offerings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-offerings",
+							"host": ["{{base_url}}"],
+							"path": ["api", "course-offerings"]
+						}
+					}
+				},
+				{
+					"name": "Get Course Offering by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-offerings/{{course_offering_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "course-offerings", "{{course_offering_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Create Course Offering",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"moduleId\": \"{{module_id}}\",\n  \"classId\": \"{{class_id}}\",\n  \"facilitatorId\": \"{{facilitator_id}}\",\n  \"trimester\": 1,\n  \"modeId\": \"{{mode_id}}\",\n  \"year\": 2025\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/course-offerings",
+							"host": ["{{base_url}}"],
+							"path": ["api", "course-offerings"]
+						}
+					}
+				},
+				{
+					"name": "Update Course Offering",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"trimester\": 2,\n  \"status\": \"active\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/course-offerings/{{course_offering_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "course-offerings", "{{course_offering_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Course Offering",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-offerings/{{course_offering_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "course-offerings", "{{course_offering_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Filter Course Offerings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-offerings/filter?trimester=1&year=2025&facilitator={{facilitator_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "course-offerings", "filter"],
+							"query": [
+								{
+									"key": "trimester",
+									"value": "1"
+								},
+								{
+									"key": "year",
+									"value": "2025"
+								},
+								{
+									"key": "facilitator",
+									"value": "{{facilitator_id}}"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Course Offerings by Facilitator",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-offerings/facilitator/{{facilitator_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "course-offerings", "facilitator", "{{facilitator_id}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Activity Trackers",
+			"item": [
+				{
+					"name": "Get All Activity Trackers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers"]
+						}
+					}
+				},
+				{
+					"name": "Get My Activity Trackers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers/my",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers", "my"]
+						}
+					}
+				},
+				{
+					"name": "Get Activity Tracker by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers/{{activity_tracker_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers", "{{activity_tracker_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Create Activity Tracker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"allocationId\": \"{{course_offering_id}}\",\n  \"weekNumber\": 1,\n  \"attendance\": [true, true, false, true, true],\n  \"formativeOneGrading\": \"Done\",\n  \"formativeTwoGrading\": \"Pending\",\n  \"summativeGrading\": \"Not Started\",\n  \"courseModeration\": \"Done\",\n  \"intranetSync\": \"Done\",\n  \"gradeBookStatus\": \"Pending\",\n  \"notes\": \"Week 1 completed successfully\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers"]
+						}
+					}
+				},
+				{
+					"name": "Update Activity Tracker",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"formativeTwoGrading\": \"Done\",\n  \"summativeGrading\": \"Pending\",\n  \"gradeBookStatus\": \"Done\",\n  \"notes\": \"Updated week 1 progress\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers/{{activity_tracker_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers", "{{activity_tracker_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Activity Tracker",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers/{{activity_tracker_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers", "{{activity_tracker_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Activity Trackers by Facilitator",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers/facilitator/{{facilitator_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers", "facilitator", "{{facilitator_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Get Activity Trackers by Course Offering",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/activity-trackers/course/{{course_offering_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "activity-trackers", "course", "{{course_offering_id}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "System",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": ["{{base_url}}"],
+							"path": ["health"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "auth_token",
+			"value": ""
+		},
+		{
+			"key": "manager_id",
+			"value": ""
+		},
+		{
+			"key": "module_id",
+			"value": ""
+		},
+		{
+			"key": "class_id",
+			"value": ""
+		},
+		{
+			"key": "cohort_id",
+			"value": ""
+		},
+		{
+			"key": "student_id",
+			"value": ""
+		},
+		{
+			"key": "facilitator_id",
+			"value": ""
+		},
+		{
+			"key": "course_offering_id",
+			"value": ""
+		},
+		{
+			"key": "activity_tracker_id",
+			"value": ""
+		},
+		{
+			"key": "mode_id",
+			"value": ""
+		}
+	]
+} 
