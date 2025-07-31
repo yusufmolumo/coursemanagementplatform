@@ -1,6 +1,6 @@
 # Course Management Platform Backend Service
 
-A comprehensive backend system for Course Management Platform with role-based access, Redis queuing, and i18n support. This project demonstrates proficiency in building backend applications with Node.js, database design, asynchronous task handling, and internationalization features.
+A comprehensive backend system for Course Management Platform with role-based access, Redis queuing, and i18n support. T
 
 ## 🚀 Features
 
@@ -61,28 +61,28 @@ npm install
 Create a `.env` file in the root directory with the following variables:
 
 ```env
-PORT=3000
+PORT=
 
 # MySQL Configuration
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=1590
-DB_NAME=course_management_platform
+DB_HOST=
+DB_PORT=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
 
 # JWT Configuration
 JWT_SECRET=secretkey
 
 # Redis Configuration
-REDIS_HOST=localhost
-REDIS_PORT=6379
+REDIS_HOST=
+REDIS_PORT=
 
 # Email Configuration (Nodemailer)
 EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=y.molumo@alustudent.com
-EMAIL_PASS=xxbr gywy ahjj jxpy
-EMAIL_FROM=y.molumo@alustudent.com
+EMAIL_PORT=
+EMAIL_USER=
+EMAIL_PASS=
+EMAIL_FROM=
 ```
 
 ### 4. Database Setup
@@ -146,15 +146,6 @@ Check if the API is running: `http://localhost:3000/health`
 - **Course Offerings**: Course allocations linking modules, classes, and facilitators
 - **Activity Trackers**: Weekly activity logs for facilitators
 
-### Relationships
-- Managers → Facilitators (1:many)
-- Classes → Students (1:many)
-- Cohorts → Students (1:many)
-- Modules → Course Offerings (1:many)
-- Classes → Course Offerings (1:many)
-- Facilitators → Course Offerings (1:many)
-- Modes → Course Offerings (1:many)
-- Course Offerings → Activity Trackers (1:many)
 
 ## 🧪 Testing
 
@@ -194,7 +185,7 @@ The system uses Gmail SMTP for sending emails. Configure your email settings in 
 ## 🌐 Frontend (Module 3)
 
 ### Student Reflection Page
-- **URL**: `http://localhost:3000/frontend/index.html`
+- **URL**: `https://coursemanagementfrontend.netlify.app/`
 - **Features**:
   - Multilingual support (English, French, Spanish)
   - Dynamic language switching
@@ -202,11 +193,6 @@ The system uses Gmail SMTP for sending emails. Configure your email settings in 
   - Auto-save functionality
   - Responsive design
 
-### Deployment
-The frontend can be deployed to:
-- **Netlify**: For static hosting
-- **GitHub Pages**: For public hosting
-- **Any static hosting service**
 
 ## 📁 Project Structure
 
@@ -349,42 +335,11 @@ npm run db:reset    # Reset database (drop, create, migrate, seed)
 
 - **JWT Authentication**: Secure token-based authentication
 - **Password Hashing**: bcrypt for password security
-- **Input Validation**: Comprehensive validation using express-validator
-- **Rate Limiting**: Protection against brute force attacks
-- **CORS**: Cross-origin resource sharing configuration
-- **Helmet**: Security headers middleware
-- **SQL Injection Protection**: Parameterized queries with Sequelize
-
-## 📊 Monitoring & Logging
-
-- **Health Check Endpoint**: `/health`
-- **Error Handling**: Comprehensive error handling middleware
-- **Request Logging**: Automatic request logging
-- **Database Logging**: Sequelize query logging (configurable)
-
-## 🚀 Deployment
-
-### Environment Variables
-Ensure all environment variables are properly configured for production.
-
-### Database Migration
-```bash
-npm run db:migrate
-npm run db:seed
-```
-
-### Process Management
-Use PM2 or similar process manager for production deployment:
-```bash
-npm install -g pm2
-pm2 start server.js --name "course-management-platform"
-```
 
 ## 📞 Support
 
 For questions or support, please contact:
 - **Email**: y.molumo@alustudent.com
-- **GitHub**: [Repository Issues](https://github.com/yourusername/coursemanagementplatform/issues)
 
 ## 📄 License
 
@@ -396,10 +351,9 @@ A comprehensive video walkthrough demonstrating all API endpoints and functional
 
 ## 🔗 Links
 
-- **Frontend (Netlify)**: [Frontend Link - To be added]
+- **Frontend (Netlify)**: `https://coursemanagementfrontend.netlify.app/`
 - **API Documentation**: `http://localhost:3000/api-docs`
 - **Health Check**: `http://localhost:3000/health`
 
 ---
 
-**Note**: This project is a comprehensive demonstration of backend development skills including database design, API development, authentication, testing, and internationalization. All features are fully functional and ready for production use. 
