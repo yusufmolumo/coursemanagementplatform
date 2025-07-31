@@ -347,7 +347,7 @@ This project is licensed under the MIT License.
 
 ## 🎥 Video Walkthrough
 
-A comprehensive video walkthrough demonstrating all API endpoints and functionality is available at: [Video Link - To be added]
+A comprehensive video walkthrough demonstrating all API endpoints and functionality is here: [https://drive.google.com/file/d/1-zceMiZvTrRg4iZ3pIw-CkjrLEoACJwO/view?usp=sharing]
 
 ## 🔗 Links
 
